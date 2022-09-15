@@ -49,6 +49,27 @@ http://wanted610.s3-website.ap-northeast-2.amazonaws.com/
 
 - Angular-cli 레포지토리의 issue를 보여주는 App
 
+> ## 프로젝트 진행방법
+
+- 이번 과제의 경우 협업하기에 양이 조금 적기도 하고 Typescript를 적용하고 ContextAPI도 직접 활용해보면서 실습과 학습을 병행하기 위해 이번 과제에서는 각자 이 과제를 수행하도록 진행했다.
+
+1. 각 팀원별로 필수 기능을 구현한 뒤 코드 리뷰를 진행하고 추가 기능을 구현하도록 진행했다.
+2. 추가 기능 구현 뒤, Best Practice를 논의한 뒤 선정하여 메인 브랜치에 병합했다.
+
+  <details>
+    <summary>Best Practice 선정 이유</summary>
+
+    - Context API를 사용하는 Custom Hook을 사용해서 분리를 한 점이 좋았다.
+    - 전역으로 사용하는 types을 따로 분리해서 사용성이 좋았다.
+    - 추가 기능(레포지토리 검색을 통한 issue 리스트 확인)이 있다.
+    - UI 완성도가 높고 반응형에 따라 두 가지 컨셉으로 보여준다는 부분이 좋았다.
+    - Custom Hook을 적절하게 활용해서 Infinite scroll도 간단하면서 효율적으로 작업하셨고 Context API를 적재적소에 같이 활용한 부분이 좋았다.
+    - types 분리와 추가 기능에 대한 부분으로 확장성까지 고려한 부분이 좋았다.
+
+  </details>
+
+  <br/>
+
 > ## 사용기술
 
  <br/>
@@ -120,8 +141,7 @@ http://wanted610.s3-website.ap-northeast-2.amazonaws.com/
 
 > ## 기능별 설명 / Best Practice
 
-  <details>
-    <summary>1. Issue 목록</summary>
+### 1. Issue 목록
 
 - 이슈 목록 context API를 활용하여 불러오기
 - 이슈 목록은 open 상태, comment 많은 순으로 query param에 넣어 요청
@@ -136,21 +156,28 @@ http://wanted610.s3-website.ap-northeast-2.amazonaws.com/
 <img width="25%" alt="Screen Shot 2022-09-15 at 10 06 45 AM" src="https://user-images.githubusercontent.com/96093461/190289505-dc398514-257e-41aa-b26c-c095fb6da75a.png">
  <img width="70%" alt="Screen Shot 2022-09-15 at 10 03 03 AM" src="https://user-images.githubusercontent.com/96093461/190289113-75aad059-d7cf-4bf9-9355-0b21ca9fa10f.png">
 
-  </details>
-<details>
-    <summary>2. Issue 상세</summary>
-    
+### 2. Issue 상세
+
 - 이슈 본문 markdown 형태를 정규식으로 parsing하여 컴포넌트에 innerHTML으로 넣어줌
+
   - 추후 HoC로 분리할 예정
 
   </details>
 
+### 3. 추가 기능
+
+- Github API 호출 제한 초과 시 403 에러에 대한 alert 처리
+- 찾을 수 없는 레포지토리에 대한 404 에러에 대한 alert 처리
+- 레포지토리 경로 변경 기능 추가
+<img width="1357" alt="Screen Shot 2022-09-15 at 11 44 52 AM" src="https://user-images.githubusercontent.com/96093461/190301426-370d0865-cdbe-4121-b457-6081ea329e3c.png">
+
+  </details>
 <br>
 
 > ## 미구현 내용
 
-- 에러 처리 페이지
-- 추가 기능으로 repository를 변경할 수 있도록 하는 기능 작업 시도 (미완성)
+- 에러 처리 페이지 UI
+- 모바일 화면에서의 디테일 화면 연결
 
 > ## Git
 
@@ -218,11 +245,12 @@ http://wanted610.s3-website.ap-northeast-2.amazonaws.com/
 
 ### 김한얼
 
--
+- Typescript와 ContextAPI를 연계해서 활용하는데 많은 에러와 시행착오를 겪었는데, 이를 통해 한층 더 Typescript에 대한 이해도를 많이 높일 수 있었다.
+- reducer를 통한 dispatch로 state 관리를 하려고 했는데 그 부분이 많이 어려워서 추가적인 학습을 진행할 예정이다.
 
 ### 박진성
 
--
+- Typescript를 처음 사용해봤는데 정말 러닝 커브가 높은 언어인 것 같다. 하지만, 타입지정을 통해 미리미리 디버깅을 할 수 있고 규모가 커질수록 활용도가 높을거란 기대가 된다.
 
 ### 신이재
 
